@@ -22,7 +22,7 @@ spec:
           name: policy-certificatepolicy-lifetime
         spec:
           namespaceSelector:
-            include: ["default"]
+            include: ["lifetime"]
             exclude: []
           remediationAction: inform
           severity: low

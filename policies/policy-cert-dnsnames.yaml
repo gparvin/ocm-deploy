@@ -22,7 +22,7 @@ spec:
           name: policy-certificatepolicy-expiration
         spec:
           namespaceSelector:
-            include: ["default"]
+            include: ["expiration"]
             exclude: []
           remediationAction: inform
           severity: low

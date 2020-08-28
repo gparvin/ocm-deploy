@@ -22,7 +22,7 @@ spec:
           name: policy-certificatepolicy-dnsnames
         spec:
           namespaceSelector:
-            include: ["default"]
+            include: ["dnsnames"]
             exclude: []
           remediationAction: inform
           severity: low
