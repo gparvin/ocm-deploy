@@ -1,0 +1,49 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: ss-sample-issuer
+  namespace: dnsnames
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: rsa-ca-sample-cert
+  namespace: dnsnames
+spec:
+  secretName: rsa-ca-sample-secret
+  isCA: true
+  issuerRef:
+    name: ss-sample-issuer
+    kind: Issuer
+  commonName: wap-master.fyre.test.com
+  dnsNames:
+  - wap-master.fyre.test.com
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+ name: rsa-sample-tls
+ namespace: dnsnames
+spec:
+ ca:
+   secretName: rsa-ca-sample-secret
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: rsa-dnsnames-tls-1
+  namespace: dnsnames
+spec:
+  secretName: rsa-dnsnames-tls-1
+  issuerRef:
+    name: rsa-sample-tls
+    kind: Issuer
+  commonName: wap-master.fyre.test.com
+  duration: 87610h
+  dnsNames:
+  - wap-master.fyre.test.com
+  - *.redhat.com
+  ipAddresses:
+  - 127.0.0.1
