@@ -1,12 +1,12 @@
-apiVersion: policy.mcm.ibm.com/v1alpha1
+apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
   name: policy-certificatepolicy-expiration
   namespace: open-cluster-management-policies
   annotations:
-    policy.mcm.ibm.com/standards: NIST-CSF
-    policy.mcm.ibm.com/categories: PR.DS DataSecurity
-    policy.mcm.ibm.com/controls: PR.DS-2 Data-in-transit
+    policy.open-cluster-management.io/standards: NIST-CSF
+    policy.open-cluster-management.io/categories: PR.DS DataSecurity
+    policy.open-cluster-management.io/controls: PR.DS-2 Data-in-transit
 spec:
   complianceType: musthave
   remediationAction: inform
@@ -41,7 +41,7 @@ spec:
           minimumDuration: 300h
           minimumCADuration: 1000h
 ---
-apiVersion: mcm.ibm.com/v1alpha1
+apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
   name: binding-policy-certificatepolicy
@@ -53,7 +53,7 @@ placementRef:
 subjects:
 - name: policy-certificatepolicy-expiration
   kind: Policy
-  apiGroup: policy.mcm.ibm.com
+  apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
