@@ -16,7 +16,7 @@ spec:
     include: ["dnsnames"]
   policy-templates:
     - objectDefinition:
-        apiVersion: policies.ibm.com/v1alpha1
+        apiVersion: policy.open-cluster-management.io/v1
         kind: CertificatePolicy # cert management expiration
         metadata:
           name: policy-certificatepolicy-dnsnames
@@ -27,6 +27,7 @@ spec:
           remediationAction: inform
           severity: low
           minimumDuration: 300h
+          minimumCADuration: 1000h
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
