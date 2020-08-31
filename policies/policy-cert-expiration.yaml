@@ -13,7 +13,7 @@ spec:
   disabled: false
   namespaces:
     exclude: ["kube-*"]
-    include: ["dnsnames"]
+    include: ["expiration"]
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
