@@ -1,0 +1,96 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-certificatepolicy-dnsnames
+  namespace: open-cluster-management-policies
+  annotations:
+    policy.open-cluster-management.io/standards: NIST-CSF
+    policy.open-cluster-management.io/categories: PR.DS DataSecurity
+    policy.open-cluster-management.io/controls: PR.DS-2 Data-in-transit
+spec:
+  complianceType: musthave
+  remediationAction: inform
+  disabled: false
+  namespaces:
+    exclude: ["kube-*"]
+    include: ["dnsnames"]
+  policy-templates:
+    - objectDefinition:
+      apiVersion: cert-manager.io/v1alpha2
+      kind: Issuer
+      metadata:
+        name: ss-sample-issuer
+        namespace: expiration
+      spec:
+        selfSigned: {}
+    - objectDefinition:
+      apiVersion: cert-manager.io/v1alpha2
+      kind: Certificate
+      metadata:
+        name: rsa-ca-sample-cert
+        namespace: expiration
+      spec:
+        secretName: rsa-ca-sample-secret
+        isCA: true
+        issuerRef:
+          name: ss-sample-issuer
+          kind: Issuer
+        commonName: wap-master.fyre.test.com
+        dnsNames:
+        - wap-master.fyre.test.com
+    - objectDefinition:
+      apiVersion: cert-manager.io/v1alpha2
+      kind: Issuer
+      metadata:
+       name: rsa-sample-tls
+       namespace: expiration
+      spec:
+       ca:
+         secretName: rsa-ca-sample-secret
+    - objectDefinition:
+      apiVersion: cert-manager.io/v1alpha2
+      kind: Certificate
+      metadata:
+        name: rsa-expiration-tls-1
+        namespace: expiration
+      spec:
+        secretName: rsa-expiration-tls-1
+        issuerRef:
+          name: rsa-sample-tls
+          kind: Issuer
+        commonName: wap-master.fyre.test.com
+        duration: 299h
+        dnsNames:
+        - wap-master.fyre.test.com
+        ipAddresses:
+        - 127.0.0.1
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: binding-policy-certificatepolicy-dnsnames
+  namespace: open-cluster-management-policies
+placementRef:
+  name: placement-policy-certificatepolicy-dnsnames
+  kind: PlacementRule
+  apiGroup: apps.open-cluster-management.io
+subjects:
+- name: policy-certificatepolicy-dnsnames
+  kind: Policy
+  apiGroup: policy.open-cluster-management.io
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: placement-policy-certificatepolicy-dnsnames
+  namespace: open-cluster-management-policies
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions:
+    - key: environment
+      operator: In
+      values:
+      - dev
