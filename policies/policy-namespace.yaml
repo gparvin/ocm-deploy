@@ -29,6 +29,7 @@ spec:
               apiVersion: v1
               metadata:
                 name: expiration
+              spec: {}
     - objectDefinition:
       apiVersion: policy.open-cluster-management.io/v1
       kind: ConfigurationPolicy
@@ -47,6 +48,7 @@ spec:
               apiVersion: v1
               metadata:
                 name: lifetime
+              spec: {}
     - objectDefinition:
       apiVersion: policy.open-cluster-management.io/v1
       kind: ConfigurationPolicy
@@ -65,6 +67,7 @@ spec:
               apiVersion: v1
               metadata:
                 name: dnsnames
+              spec: {}
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
