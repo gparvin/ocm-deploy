@@ -40,7 +40,7 @@ metadata:
   name: binding-policy-namespace
   namespace: open-cluster-management-policies
 placementRef:
-  name: production-clusters
+  name: placement-policy-namespace
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
