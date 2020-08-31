@@ -8,67 +8,63 @@ metadata:
     policy.open-cluster-management.io/categories: PR.IP Information Protection Processes and Procedures
     policy.open-cluster-management.io/controls: PR.IP-1 Baseline configuration
 spec:
-  complianceType: musthave
   remediationAction: enforce
   disabled: false
-  namespaces:
-    exclude: ["kube-*"]
-    include: ["default"]
-    policy-templates:
-      - objectDefinition:
-        apiVersion: policy.open-cluster-management.io/v1
-        kind: ConfigurationPolicy
-        metadata:
-          name: policy-expiration-ns
-        spec:
-          remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
-          severity: low
-          namespaceSelector:
-            exclude: ["kube-*"]
-            include: ["*"]
-          object-templates:
-            - complianceType: musthave
-              objectDefinition:
-                kind: Namespace
-                apiVersion: v1
-                metadata:
-                  name: expiration
-      - objectDefinition:
-        apiVersion: policy.open-cluster-management.io/v1
-        kind: ConfigurationPolicy
-        metadata:
-          name: policy-lifetime-ns
-        spec:
-          remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
-          severity: low
-          namespaceSelector:
-            exclude: ["kube-*"]
-            include: ["*"]
-          object-templates:
-            - complianceType: musthave
-              objectDefinition:
-                kind: Namespace
-                apiVersion: v1
-                metadata:
-                  name: lifetime
-      - objectDefinition:
-        apiVersion: policy.open-cluster-management.io/v1
-        kind: ConfigurationPolicy
-        metadata:
-          name: policy-dnsnames-ns
-        spec:
-          remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
-          severity: low
-          namespaceSelector:
-            exclude: ["kube-*"]
-            include: ["*"]
-          object-templates:
-            - complianceType: musthave
-              objectDefinition:
-                kind: Namespace
-                apiVersion: v1
-                metadata:
-                  name: dnsnames
+  policy-templates:
+    - objectDefinition:
+      apiVersion: policy.open-cluster-management.io/v1
+      kind: ConfigurationPolicy
+      metadata:
+        name: policy-expiration-ns
+      spec:
+        remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
+        severity: low
+        namespaceSelector:
+          exclude: ["kube-*"]
+          include: ["*"]
+        object-templates:
+          - complianceType: musthave
+            objectDefinition:
+              kind: Namespace
+              apiVersion: v1
+              metadata:
+                name: expiration
+    - objectDefinition:
+      apiVersion: policy.open-cluster-management.io/v1
+      kind: ConfigurationPolicy
+      metadata:
+        name: policy-lifetime-ns
+      spec:
+        remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
+        severity: low
+        namespaceSelector:
+          exclude: ["kube-*"]
+          include: ["*"]
+        object-templates:
+          - complianceType: musthave
+            objectDefinition:
+              kind: Namespace
+              apiVersion: v1
+              metadata:
+                name: lifetime
+    - objectDefinition:
+      apiVersion: policy.open-cluster-management.io/v1
+      kind: ConfigurationPolicy
+      metadata:
+        name: policy-dnsnames-ns
+      spec:
+        remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
+        severity: low
+        namespaceSelector:
+          exclude: ["kube-*"]
+          include: ["*"]
+        object-templates:
+          - complianceType: musthave
+            objectDefinition:
+              kind: Namespace
+              apiVersion: v1
+              metadata:
+                name: dnsnames
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
