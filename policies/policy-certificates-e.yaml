@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: policy-certificatepolicy-dnsnames
+  name: policy-certificatepolicy-certs-expiration
   namespace: open-cluster-management-policies
   annotations:
     policy.open-cluster-management.io/standards: NIST-CSF
@@ -13,7 +13,7 @@ spec:
   disabled: false
   namespaces:
     exclude: ["kube-*"]
-    include: ["dnsnames"]
+    include: ["expiration"]
   policy-templates:
     - objectDefinition:
       apiVersion: cert-manager.io/v1alpha2
@@ -68,21 +68,21 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-policy-certificatepolicy-dnsnames
+  name: binding-policy-certificatepolicy-certs-expiration
   namespace: open-cluster-management-policies
 placementRef:
-  name: placement-policy-certificatepolicy-dnsnames
+  name: placement-policy-certificatepolicy-certs-expiration
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-- name: policy-certificatepolicy-dnsnames
+- name: policy-certificatepolicy-certs-expiration
   kind: Policy
   apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placement-policy-certificatepolicy-dnsnames
+  name: placement-policy-certificatepolicy-certs-expiration
   namespace: open-cluster-management-policies
 spec:
   clusterConditions:
