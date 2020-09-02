@@ -80,8 +80,8 @@ spec:
                 name: rsa-sample-tls
                 namespace: expiration
                 spec:
-                ca:
-                  secretName: rsa-ca-sample-secret
+                  ca:
+                    secretName: rsa-ca-sample-secret
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
