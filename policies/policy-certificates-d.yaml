@@ -118,7 +118,7 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
   name: binding-policy-certs-dnsnames
-  namespace: open-cluster-management-policies
+  namespace: ocm-policies
 placementRef:
   name: placement-policy-certs-dnsnames
   kind: PlacementRule
@@ -132,7 +132,7 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: placement-policy-certs-dnsnames
-  namespace: open-cluster-management-policies
+  namespace: ocm-policies
 spec:
   clusterConditions:
   - status: "True"

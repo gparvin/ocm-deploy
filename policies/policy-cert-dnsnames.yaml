@@ -29,7 +29,7 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
   name: binding-policy-certificatepolicy
-  namespace: open-cluster-management-policy-collection
+  namespace: ocm-policies
 placementRef:
   name: placement-policy-certificatepolicy
   kind: PlacementRule
@@ -43,7 +43,7 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: placement-policy-certificatepolicy
-  namespace: open-cluster-management-policy-collection
+  namespace: ocm-policies
 spec:
   clusterConditions:
   - status: "True"
