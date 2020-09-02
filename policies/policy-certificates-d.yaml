@@ -2,7 +2,7 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
   name: policy-certs-dnsnames
-  namespace: open-cluster-management-policies
+  namespace: ocm-policies
   annotations:
     policy.open-cluster-management.io/standards: NIST-CSF
     policy.open-cluster-management.io/categories: PR.DS DataSecurity
@@ -25,7 +25,7 @@ spec:
         object-templates:
           - complianceType: musthave
             objectDefinition:
-              apiVersion: cert-manager.io/v1alpha2
+              apiVersion: cert-manager.io/v1
               kind: Issuer
               metadata:
                 name: ss-sample-issuer
@@ -46,7 +46,7 @@ spec:
         object-templates:
           - complianceType: musthave
             objectDefinition:
-              apiVersion: cert-manager.io/v1alpha2
+              apiVersion: cert-manager.io/v1
               kind: Certificate
               metadata:
                 name: rsa-ca-sample-cert
@@ -74,7 +74,7 @@ spec:
         object-templates:
           - complianceType: musthave
             objectDefinition:
-              apiVersion: cert-manager.io/v1alpha2
+              apiVersion: cert-manager.io/v1
               kind: Issuer
               metadata:
                 name: rsa-sample-tls
@@ -96,7 +96,7 @@ spec:
         object-templates:
           - complianceType: musthave
             objectDefinition:
-              apiVersion: cert-manager.io/v1alpha2
+              apiVersion: cert-manager.io/v1
               kind: Certificate
               metadata:
                 name: rsa-dnsnames-tls-1

@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   labels:
     role: policies
-  name: open-cluster-management-policies
+  name: ocm-policies
