@@ -29,21 +29,21 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-policy-cert-lifetime
+  name: binding-policy-certpl-lifetime
   namespace: ocm-policies
 placementRef:
-  name: placement-policy-cert-lifetime
+  name: placement-policy-certpl-lifetime
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-- name: policy-cert-lifetime
+- name: policy-certpl-lifetime
   kind: Policy
   apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placement-policy-cert-lifetime
+  name: placement-policy-certpl-lifetime
   namespace: ocm-policies
 spec:
   clusterConditions:

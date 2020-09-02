@@ -28,21 +28,21 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-policy-cert-exp
+  name: binding-policy-certpl-exp
   namespace: ocm-policies
 placementRef:
-  name: placement-policy-cert-exp
+  name: placement-policy-certpl-exp
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-- name: policy-cert-exp
+- name: policy-certpl-exp
   kind: Policy
   apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placement-policy-cert-exp
+  name: placement-policy-certpl-exp
   namespace: ocm-policies
 spec:
   clusterConditions:

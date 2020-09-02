@@ -116,21 +116,21 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-policy-certificatepolicy-certs-expiration
+  name: binding-policy-certs-expiration
   namespace: ocm-policies
 placementRef:
-  name: placement-policy-certificatepolicy-certs-expiration
+  name: placement-policy-certs-expiration
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-- name: policy-certificatepolicy-certs-expiration
+- name: policy-certs-expiration
   kind: Policy
   apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placement-policy-certificatepolicy-certs-expiration
+  name: placement-policy-certs-expiration
   namespace: ocm-policies
 spec:
   clusterConditions:
