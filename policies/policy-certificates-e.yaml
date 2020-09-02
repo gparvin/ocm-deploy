@@ -108,6 +108,7 @@ spec:
                     kind: Issuer
                   commonName: wap-master.fyre.test.com
                   duration: 299h
+                  renewBefore: 100h
                   dnsNames:
                   - wap-master.fyre.test.com
                   ipAddresses:
