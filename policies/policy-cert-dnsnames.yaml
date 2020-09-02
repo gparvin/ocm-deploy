@@ -35,7 +35,7 @@ placementRef:
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-- name: policy-cert-dnsnames
+- name: policy-certpl-dnsnames
   kind: Policy
   apiGroup: policy.open-cluster-management.io
 ---

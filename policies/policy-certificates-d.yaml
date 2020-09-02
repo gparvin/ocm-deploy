@@ -15,7 +15,7 @@ spec:
       apiVersion: policy.open-cluster-management.io/v1
       kind: ConfigurationPolicy
       metadata:
-        name: policy-certificates-dnsnames-ss-issuer
+        name: policy-certs-dnsnames-ss-issuer
       spec:
         remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
         severity: low
@@ -36,7 +36,7 @@ spec:
       apiVersion: policy.open-cluster-management.io/v1
       kind: ConfigurationPolicy
       metadata:
-        name: policy-certificates-dnsnames-ca-cert
+        name: policy-certs-dnsnames-ca-cert
       spec:
         remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
         severity: low
@@ -64,7 +64,7 @@ spec:
       apiVersion: policy.open-cluster-management.io/v1
       kind: ConfigurationPolicy
       metadata:
-        name: policy-certificates-dnsnames-ca-issuer
+        name: policy-certs-dnsnames-ca-issuer
       spec:
         remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
         severity: low
@@ -86,7 +86,7 @@ spec:
       apiVersion: policy.open-cluster-management.io/v1
       kind: ConfigurationPolicy
       metadata:
-        name: policy-certificates-dnsnames-signed-cert
+        name: policy-certs-dnsnames-signed-cert
       spec:
         remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
         severity: low
