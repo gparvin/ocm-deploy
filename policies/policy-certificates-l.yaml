@@ -8,7 +8,7 @@ metadata:
     policy.open-cluster-management.io/categories: PR.DS DataSecurity
     policy.open-cluster-management.io/controls: PR.DS-2 Data-in-transit
 spec:
-  remediationAction: inform
+  remediationAction: enforce
   disabled: false
   policy-templates:
     - objectDefinition:
