@@ -21,7 +21,7 @@ spec:
           severity: low
           namespaceSelector:
             exclude: ["kube-*"]
-            include: ["dnsnames"]
+            include: ["expiration"]
           object-templates:
             - complianceType: musthave
               objectDefinition:
@@ -42,7 +42,7 @@ spec:
           severity: low
           namespaceSelector:
             exclude: ["kube-*"]
-            include: ["dnsnames"]
+            include: ["expiration"]
           object-templates:
             - complianceType: musthave
               objectDefinition:
@@ -70,7 +70,7 @@ spec:
           severity: low
           namespaceSelector:
             exclude: ["kube-*"]
-            include: ["dnsnames"]
+            include: ["expiration"]
           object-templates:
             - complianceType: musthave
               objectDefinition:
@@ -92,7 +92,7 @@ spec:
           severity: low
           namespaceSelector:
             exclude: ["kube-*"]
-            include: ["dnsnames"]
+            include: ["expiration"]
           object-templates:
             - complianceType: musthave
               objectDefinition:
