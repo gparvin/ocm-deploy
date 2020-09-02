@@ -12,106 +12,106 @@ spec:
   disabled: false
   policy-templates:
     - objectDefinition:
-      apiVersion: policy.open-cluster-management.io/v1
-      kind: ConfigurationPolicy
-      metadata:
-        name: policy-cert-expiration-ss-issuer
-      spec:
-        remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
-        severity: low
-        namespaceSelector:
-          exclude: ["kube-*"]
-          include: ["dnsnames"]
-        object-templates:
-          - complianceType: musthave
-            objectDefinition:
-              apiVersion: cert-manager.io/v1
-              kind: Issuer
-              metadata:
-                name: ss-sample-issuer
-                namespace: expiration
-              spec:
-                selfSigned: {}
-    - objectDefinition:
-      apiVersion: policy.open-cluster-management.io/v1
-      kind: ConfigurationPolicy
-      metadata:
-        name: policy-cert-expiration-ca-cert
-      spec:
-        remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
-        severity: low
-        namespaceSelector:
-          exclude: ["kube-*"]
-          include: ["dnsnames"]
-        object-templates:
-          - complianceType: musthave
-            objectDefinition:
-              apiVersion: cert-manager.io/v1
-              kind: Certificate
-              metadata:
-                name: rsa-ca-sample-cert
-                namespace: expiration
-              spec:
-                secretName: rsa-ca-sample-secret
-                isCA: true
-                issuerRef:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-cert-expiration-ss-issuer
+        spec:
+          remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
+          severity: low
+          namespaceSelector:
+            exclude: ["kube-*"]
+            include: ["dnsnames"]
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: cert-manager.io/v1
+                kind: Issuer
+                metadata:
                   name: ss-sample-issuer
-                  kind: Issuer
-                commonName: wap-master.fyre.test.com
-                dnsNames:
-                - wap-master.fyre.test.com
+                  namespace: expiration
+                spec:
+                  selfSigned: {}
     - objectDefinition:
-      apiVersion: policy.open-cluster-management.io/v1
-      kind: ConfigurationPolicy
-      metadata:
-        name: policy-cert-expiration-ca-issuer
-      spec:
-        remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
-        severity: low
-        namespaceSelector:
-          exclude: ["kube-*"]
-          include: ["dnsnames"]
-        object-templates:
-          - complianceType: musthave
-            objectDefinition:
-              apiVersion: cert-manager.io/v1
-              kind: Issuer
-              metadata:
-              name: rsa-sample-tls
-              namespace: expiration
-              spec:
-              ca:
-                secretName: rsa-ca-sample-secret
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-cert-expiration-ca-cert
+        spec:
+          remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
+          severity: low
+          namespaceSelector:
+            exclude: ["kube-*"]
+            include: ["dnsnames"]
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: cert-manager.io/v1
+                kind: Certificate
+                metadata:
+                  name: rsa-ca-sample-cert
+                  namespace: expiration
+                spec:
+                  secretName: rsa-ca-sample-secret
+                  isCA: true
+                  issuerRef:
+                    name: ss-sample-issuer
+                    kind: Issuer
+                  commonName: wap-master.fyre.test.com
+                  dnsNames:
+                  - wap-master.fyre.test.com
     - objectDefinition:
-      apiVersion: policy.open-cluster-management.io/v1
-      kind: ConfigurationPolicy
-      metadata:
-        name: policy-cert-expiration-cert
-      spec:
-        remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
-        severity: low
-        namespaceSelector:
-          exclude: ["kube-*"]
-          include: ["dnsnames"]
-        object-templates:
-          - complianceType: musthave
-            objectDefinition:
-              apiVersion: cert-manager.io/v1
-              kind: Certificate
-              metadata:
-                name: rsa-expiration-tls-1
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-cert-expiration-ca-issuer
+        spec:
+          remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
+          severity: low
+          namespaceSelector:
+            exclude: ["kube-*"]
+            include: ["dnsnames"]
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: cert-manager.io/v1
+                kind: Issuer
+                metadata:
+                name: rsa-sample-tls
                 namespace: expiration
-              spec:
-                secretName: rsa-expiration-tls-1
-                issuerRef:
-                  name: rsa-sample-tls
-                  kind: Issuer
-                commonName: wap-master.fyre.test.com
-                duration: 299h
-                dnsNames:
-                - wap-master.fyre.test.com
-                ipAddresses:
-                - 127.0.0.1
+                spec:
+                ca:
+                  secretName: rsa-ca-sample-secret
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-cert-expiration-cert
+        spec:
+          remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.
+          severity: low
+          namespaceSelector:
+            exclude: ["kube-*"]
+            include: ["dnsnames"]
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: cert-manager.io/v1
+                kind: Certificate
+                metadata:
+                  name: rsa-expiration-tls-1
+                  namespace: expiration
+                spec:
+                  secretName: rsa-expiration-tls-1
+                  issuerRef:
+                    name: rsa-sample-tls
+                    kind: Issuer
+                  commonName: wap-master.fyre.test.com
+                  duration: 299h
+                  dnsNames:
+                  - wap-master.fyre.test.com
+                  ipAddresses:
+                  - 127.0.0.1
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
