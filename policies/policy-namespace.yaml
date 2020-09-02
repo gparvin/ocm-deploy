@@ -21,7 +21,7 @@ spec:
         severity: low
         namespaceSelector:
           exclude: ["kube-*"]
-          include: ["*"]
+          include: ["default"]
         object-templates:
           - complianceType: musthave
             objectDefinition:
@@ -40,7 +40,7 @@ spec:
         severity: low
         namespaceSelector:
           exclude: ["kube-*"]
-          include: ["*"]
+          include: ["default"]
         object-templates:
           - complianceType: musthave
             objectDefinition:
