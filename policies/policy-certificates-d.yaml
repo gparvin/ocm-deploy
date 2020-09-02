@@ -110,7 +110,7 @@ spec:
                   duration: 87610h
                   dnsNames:
                   - wap-master.fyre.test.com
-                  - *.redhat.com
+                  - "*.redhat.com"
                   ipAddresses:
                   - 127.0.0.1
 ---
