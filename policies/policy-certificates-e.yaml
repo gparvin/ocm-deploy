@@ -77,8 +77,8 @@ spec:
                 apiVersion: cert-manager.io/v1
                 kind: Issuer
                 metadata:
-                name: rsa-sample-tls
-                namespace: expiration
+                  name: rsa-sample-tls
+                  namespace: expiration
                 spec:
                   ca:
                     secretName: rsa-ca-sample-secret
