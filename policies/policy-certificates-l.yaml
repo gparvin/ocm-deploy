@@ -107,7 +107,7 @@ spec:
                     name: rsa-sample-tls
                     kind: Issuer
                   commonName: wap-master.fyre.test.com
-                  duration: 87601h
+                  duration: 8760h
                   dnsNames:
                   - wap-master.fyre.test.com
                   ipAddresses:
